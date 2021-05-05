@@ -1,8 +1,8 @@
 # Paint
 Un juego usando Python.
 
-# Creador de repositorio
+## Creador de repositorio
 * Luis Ignacio Ferro Salinas
 
-# Participantes
-|Luis Ignacio Ferro Salinas| Andrick...|
+## Participantes
+| Luis Ignacio Ferro Salinas | Andrick... |
