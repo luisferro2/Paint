@@ -1,5 +1,7 @@
 from turtle import *
+from turtle import circle as turtle_circle
 from freegames import vector
+import numpy as np
 
 
 def line(start, end):
@@ -26,7 +28,14 @@ def square(start, end):
 
 def circle(start, end):
     "Draw circle from start to end."
-    pass  # TODO
+    diameter = np.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2)
+    radius = diameter / 2
+    center = [start.x + (end.x - start.x) / 2, start.y + (end.y - start.y) / 2]
+    bottom = [center[0]] + [center[1] - radius]
+    up()
+    goto(bottom[0], bottom[1])
+    down()
+    turtle_circle(radius)
 
 
 def rectangle(start, end):
