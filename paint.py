@@ -3,9 +3,9 @@ from freegames import vector
 
 def line(start, end):
     "Draw line from start to end."
-    up()
+    up() # Not drawing when moving.
     goto(start.x, start.y)
-    down()
+    down() # Drawing when moving.
     goto(end.x, end.y)
 
 def square(start, end):
