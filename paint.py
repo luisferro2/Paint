@@ -12,9 +12,9 @@ from freegames import vector
 
 def line(start, end):
     "Draw line from start to end."
-    up() # Not drawing when moving.
+    up()  # Not drawing when moving.
     goto(start.x, start.y)
-    down() # Drawing when moving.
+    down()  # Drawing when moving.
     goto(end.x, end.y)
 
 
@@ -24,20 +24,22 @@ def square(start, end):
     goto(start.x, start.y)
     down()
 
-    begin_fill()
+    begin_fill()  #  Draw line, rotate 90 deg. and repeat 4 times.
     for count in range(4):
         forward(end.x - start.x)
         left(90)
     end_fill()
 
-#000000000a000000000a000000000a000000000a000000000a000000000a000000000a000000000a
+#00000000a000000000a000000000a000000000a000000000a000000000a000000000a000000000a
 def circle(start, end):
     "Draw circle from start to end."
     
     line(start, end)
-    diameter = math.sqrt((end.x - start.x) ** 2 
+    # Distance between vectors.
+    diameter = math.sqrt((end.x - start.x) ** 2
                        + (end.y - start.y) ** 2)
     radius = diameter / 2
+    # Center through decomposition.
     center = [start.x + (end.x - start.x) / 2,
               start.y + (end.y - start.y) / 2]
     bottom = [center[0]] + [center[1] - radius]
@@ -103,12 +105,15 @@ def store(key, value):
     state[key] = value
 
 
+# Initial steps.
 state = {'start': None, 'shape': line}
 setup(420, 420, 370, 0)
 
+# Always active.
 onscreenclick(tap)
 listen()
 
+# Functions to  respond to a key being pressed.
 onkey(undo, 'u')
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
