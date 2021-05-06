@@ -2,6 +2,7 @@ from turtle import *
 from turtle import circle as turtle_circle
 from freegames import vector
 import numpy as np
+import math
 
 
 def line(start, end):
@@ -39,14 +40,40 @@ def circle(start, end):
 
 
 def rectangle(start, end):
-    "Draw rectangle from start to end."
-    pass  # TODO
+    "Draws a rectangle from start to end."
+    up()
+    goto(start.x, start.y)
+    down()
+    
+    begin_fill()
+    forward(end.x - start.x)
+    left(90)
+    forward(end.y - start.y)
+    left(90)
+    forward(end.x - start.x)
+    left(90)
+    forward(end.y - start.y)
+    left(90)
+    end_fill()
 
 
 def triangle(start, end):
-    "Draw triangle from start to end."
-    pass  # TODO
-
+    "Draws a right angled scalene triangle from start to end"
+    up()
+    goto(start.x, start.y)
+    down()
+    
+    hip = math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2)
+    alpha = math.acos((end.x - start.x) / hip) * 180 / math.pi
+    
+    begin_fill()
+    forward(end.x - start.x)
+    left(90)
+    forward(end.y - start.y)
+    left(90 + alpha)
+    forward(hip)
+    left(180 - alpha)
+    end_fill()
 
 def tap(x, y):
     "Store starting point or draw shape."
