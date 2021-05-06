@@ -1,3 +1,28 @@
+"""
+This program contains functions to draw shapes with colors.
+
+Welcome to Paint!
+
+Press one of the following keys to change color.
+K -> BLACK
+W -> WHITE
+G -> GREEN
+B -> BLUE
+R -> RED
+O -> ORANGE
+
+Press one of the following keys set the shape to draw.
+l -> line
+s -> square
+c -> circle
+r -> rectangle
+t -> triangle
+
+With a color and a shape set, you just have to click once to
+set the starting point and click a second time to draw the shape.
+Good luck!
+"""
+
 # Standard library imports.
 import math
 
@@ -9,6 +34,7 @@ from turtle import up, down, goto, begin_fill,   \
 import turtle
 from freegames import vector
 
+print(__doc__)  # Print usage information.
 
 def line(start, end):
     """
@@ -18,12 +44,12 @@ def line(start, end):
     the position of the second tap.
 
     Parameters:
-        start: vector -- Vector containing coordinates
+    start: vector -- Vector containing coordinates
                          x, y of start position.
-        end: vector -- Vector containing coordinates
+    end: vector -- Vector containing coordinates
                        x, y of end position.
     Returns:
-        None
+    None
     """
 
     up()  # Not drawing when moving.
@@ -45,12 +71,12 @@ def square(start, end):
     drawn by rotating the direction 90 degrees clockwise.
 
     Parameters:
-        start: vector -- Vector containing coordinates
+    start: vector -- Vector containing coordinates
                          x, y of start position.
-        end: vector -- Vector containing coordinates
+    end: vector -- Vector containing coordinates
                        x, y of end position.
     Returns:
-        None
+    None
     """
 
     up()
@@ -73,12 +99,12 @@ def circle(start, end):
     draws the circle.
 
     Parameters:
-        start: vector -- Vector containing coordinates
+    start: vector -- Vector containing coordinates
                          x, y of start position.
-        end: vector -- Vector containing coordinates
+    end: vector -- Vector containing coordinates
                        x, y of end position.
     Returns:
-        None
+    None
     """
     
     line(start, end)
@@ -106,7 +132,6 @@ def rectangle(start, end):
     of the difference between the end and start positions along
     the x-axis. The same applies with the second and last lines
     along the y-axis.
-
     The rectangle is drawn with 4 lines. The first line is drawn
     from the start position in the direction of the x-axis. It will
     point to the right if the end position is further right than
@@ -114,12 +139,12 @@ def rectangle(start, end):
     drawn by rotating the direction 90 degrees clockwise.
 
     Parameters:
-        start: vector -- Vector containing coordinates
+    start: vector -- Vector containing coordinates
                          x, y of start position.
-        end: vector -- Vector containing coordinates
+    end: vector -- Vector containing coordinates
                        x, y of end position.
     Returns:
-        None
+    None
     """
 
     up()
@@ -166,12 +191,11 @@ def tap(x, y):
     shape function and resets the start.
 
     Parameters:
-        x: vector -- Vector containing coordinates
-                         x, y of start position.
-        x: vector -- Vector containing coordinates
-                       x, y of end position.
+    x: -- The position of the screen click in the x-axis.
+    y: -- The position of the screen click in the y-axis.
+
     Returns:
-        None
+    None
     """
 
     start = state['start']
@@ -205,7 +229,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
-onkey(lambda: color("orange"), "O")
+onkey(lambda: color("orange"), "O")  # Adding extra color.
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
