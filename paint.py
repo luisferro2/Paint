@@ -18,12 +18,11 @@ def square(start, end):
     up()
     goto(start.x, start.y)
     down()
-    begin_fill()
 
+    begin_fill()
     for count in range(4):
         forward(end.x - start.x)
         left(90)
-
     end_fill()
 
 #000000000a000000000a000000000a000000000a000000000a000000000a000000000a000000000a
@@ -36,9 +35,11 @@ def circle(start, end):
               start.y + (end.y - start.y) / 2,
              ]
     bottom = [center[0]] + [center[1] - radius]
+
     up()
     goto(bottom[0], bottom[1])
     down()
+
     turtle.circle(radius)
 
 
@@ -95,10 +96,13 @@ def store(key, value):
     "Store value in state at key."
     state[key] = value
 
+
 state = {'start': None, 'shape': line}
 setup(420, 420, 370, 0)
+
 onscreenclick(tap)
 listen()
+
 onkey(undo, 'u')
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
