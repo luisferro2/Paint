@@ -33,12 +33,13 @@ def square(start, end):
 #000000000a000000000a000000000a000000000a000000000a000000000a000000000a000000000a
 def circle(start, end):
     "Draw circle from start to end."
+    
     line(start, end)
-    diameter = math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2)
+    diameter = math.sqrt((end.x - start.x) ** 2 
+                       + (end.y - start.y) ** 2)
     radius = diameter / 2
     center = [start.x + (end.x - start.x) / 2,
-              start.y + (end.y - start.y) / 2,
-             ]
+              start.y + (end.y - start.y) / 2]
     bottom = [center[0]] + [center[1] - radius]
 
     up()
