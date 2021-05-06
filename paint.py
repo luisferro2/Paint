@@ -11,7 +11,21 @@ from freegames import vector
 
 
 def line(start, end):
-    "Draw line from start to end."
+    """
+    Draws line from start to end.
+
+    The line is drawn from the position of the first tap to 
+    the position of the second tap.
+
+    Parameters:
+        start: vector -- Vector containing coordinates
+                         x, y of start position.
+        end: vector -- Vector containing coordinates
+                       x, y of end position.
+    Returns:
+        None
+    """
+
     up()  # Not drawing when moving.
     goto(start.x, start.y)
     down()  # Drawing when moving.
@@ -19,7 +33,26 @@ def line(start, end):
 
 
 def square(start, end):
-    "Draw square from start to end."
+    """
+    Draws a square.
+
+    The magnitude of the difference between the starting point and
+    the end point along the x-axis is the size of the side of the
+    square. The square is drawn with 4 lines. The first line is drawn
+    from the start position in the direction of the x-axis. It will
+    point to the right if the end position is further right than
+    the start position, and left otherwise. The following lines are
+    drawn by rotating the direction 90 degrees clockwise.
+
+    Parameters:
+        start: vector -- Vector containing coordinates
+                         x, y of start position.
+        end: vector -- Vector containing coordinates
+                       x, y of end position.
+    Returns:
+        None
+    """
+
     up()
     goto(start.x, start.y)
     down()
@@ -30,9 +63,23 @@ def square(start, end):
         left(90)
     end_fill()
 
-#00000000a000000000a000000000a000000000a000000000a000000000a000000000a000000000a
+
 def circle(start, end):
-    "Draw circle from start to end."
+    """
+    Draws a circle.
+
+    The distance between the 2 taps is the diameter of the circle.
+    The function draws this line for better visualization and then
+    draws the circle.
+
+    Parameters:
+        start: vector -- Vector containing coordinates
+                         x, y of start position.
+        end: vector -- Vector containing coordinates
+                       x, y of end position.
+    Returns:
+        None
+    """
     
     line(start, end)
     # Distance between vectors.
@@ -52,7 +99,29 @@ def circle(start, end):
 
 
 def rectangle(start, end):
-    "Draws a rectangle from start to end."
+    """
+    Draws a rectangle.
+    
+    The magnitude of the first and third lines is the magnitude
+    of the difference between the end and start positions along
+    the x-axis. The same applies with the second and last lines
+    along the y-axis.
+
+    The rectangle is drawn with 4 lines. The first line is drawn
+    from the start position in the direction of the x-axis. It will
+    point to the right if the end position is further right than
+    the start position, and left otherwise. The following lines are
+    drawn by rotating the direction 90 degrees clockwise.
+
+    Parameters:
+        start: vector -- Vector containing coordinates
+                         x, y of start position.
+        end: vector -- Vector containing coordinates
+                       x, y of end position.
+    Returns:
+        None
+    """
+
     up()
     goto(start.x, start.y)
     down()
@@ -87,8 +156,24 @@ def triangle(start, end):
     left(180 - alpha)
     end_fill()
 
+
 def tap(x, y):
-    "Store starting point or draw shape."
+    """
+    Does the necessary operations after a tap.
+    
+    If the tap is the first one, it just stores is,
+    otherwise it stores it as the last tap, calls the
+    shape function and resets the start.
+
+    Parameters:
+        x: vector -- Vector containing coordinates
+                         x, y of start position.
+        x: vector -- Vector containing coordinates
+                       x, y of end position.
+    Returns:
+        None
+    """
+
     start = state['start']
 
     if start is None:
@@ -101,7 +186,7 @@ def tap(x, y):
 
 
 def store(key, value):
-    "Store value in state at key."
+    """Stores the given value in the state dictionary using the key"""
     state[key] = value
 
 
@@ -120,6 +205,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color("orange"), "O")
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
