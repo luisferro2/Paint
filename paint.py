@@ -25,12 +25,14 @@ def square(start, end):
 
     end_fill()
 
-
+#000000000a000000000a000000000a000000000a000000000a000000000a000000000a000000000a
 def circle(start, end):
     "Draw circle from start to end."
     diameter = np.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2)
     radius = diameter / 2
-    center = [start.x + (end.x - start.x) / 2, start.y + (end.y - start.y) / 2]
+    center = [start.x + (end.x - start.x) / 2,
+              start.y + (end.y - start.y) / 2,
+             ]
     bottom = [center[0]] + [center[1] - radius]
     up()
     goto(bottom[0], bottom[1])
