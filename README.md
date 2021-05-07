@@ -16,6 +16,10 @@ Luis Ignacio Ferro Salinas
 * Added the orange color.
 * Checked style of script following PEP-8 guidelines.
 
+Octavio Andrick Sánchez Perusquia
+* Implemented the function to draw a rectangle.
+* Implemented the function to draw a triangle.
+
 ## Install
 1.- Install [git] on your computer.
 
