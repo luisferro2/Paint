@@ -2,7 +2,11 @@
 A program to draw several shapes with differente colors.
 
 # Install
+1.- Install [git] on your computer.
+
 If python is added to your path as "python", type in the terminal:
+
+
 
 ```sh
 python paint.py
@@ -17,3 +21,5 @@ Read the documentation when the program runs.
 Code revised by:
 - Luis Ignacio Ferro Salinas
 - Andrick
+
+[git]: <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>
