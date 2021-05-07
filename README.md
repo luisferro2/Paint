@@ -1,8 +1,19 @@
 # Paint
-Un juego usando Python.
+A program to draw several shapes with differente colors.
 
-## Creador de repositorio
-* Luis Ignacio Ferro Salinas
+# Install
+If python is added to your path as "python", type in the terminal:
 
-## Participantes
-| Luis Ignacio Ferro Salinas | Andrick... |
+```sh
+python paint.py
+```
+
+to run
+
+# Use
+Read the documentation when the program runs.
+
+# Credits
+Code revised by:
+- Luis Ignacio Ferro Salinas
+- Andrick
