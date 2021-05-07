@@ -11,7 +11,7 @@ B -> BLUE
 R -> RED
 O -> ORANGE
 
-Press one of the following keys set the shape to draw.
+Press one of the following keys to set the shape to draw.
 l -> line
 s -> square
 c -> circle
@@ -218,9 +218,8 @@ def store(key, value):
 state = {'start': None, 'shape': line}
 setup(420, 420, 370, 0)
 
-# Always active.
-onscreenclick(tap)
-listen()
+onscreenclick(tap)  # Function to do when screen is clicked.
+listen()  # Collect key events.
 
 # Functions to  respond to a key being pressed.
 onkey(undo, 'u')
@@ -235,4 +234,5 @@ onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
-done()
+
+done()  # The event loop.
