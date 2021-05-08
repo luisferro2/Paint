@@ -36,6 +36,7 @@ from freegames import vector
 
 print(__doc__)  # Print usage information.
 
+
 def line(start, end):
     """
     Draws line from start to end.
