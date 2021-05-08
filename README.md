@@ -31,17 +31,17 @@ Octavio Andrick Sánchez Perusquia
 git clone https://github.com/luisferro2/Paint.git
 ```
 
-2.- Enter de directory of the repository:
+2.- Enter the directory of the repository:
 ```sh
 cd Paint
 ```
 
-2.- In the terminal, type:
+3.- In the terminal, type:
 ```sh
 python paint.py
 ```
 
-3.- Read the instructions when the program runs.
+4.- Read the instructions when the program runs.
 
 
 [git]: <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>
