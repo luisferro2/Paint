@@ -164,7 +164,17 @@ def rectangle(start, end):
 
 
 def triangle(start, end):
-    "Draws a right angled scalene triangle from start to end"
+    """
+    Draws a right angled scalene triangle from start to end
+    
+    Parameters:
+    start: vector -- Vector containing coordinates
+                         x, y of start position.
+    end: vector -- Vector containing coordinates
+                       x, y of end position.
+    Returns:
+    None
+    """
     up()
     goto(start.x, start.y)
     down()
@@ -172,14 +182,25 @@ def triangle(start, end):
     hip = math.sqrt((end.x - start.x) ** 2 + (end.y - start.y) ** 2)
     alpha = math.acos((end.x - start.x) / hip) * 180 / math.pi
     
-    begin_fill()
-    forward(end.x - start.x)
-    left(90)
-    forward(end.y - start.y)
-    left(90 + alpha)
-    forward(hip)
-    left(180 - alpha)
-    end_fill()
+    if (end.y - start.y) >= 0:
+        begin_fill()
+        forward(end.x - start.x)
+        left(90)
+        forward(end.y - start.y)
+        left(90 + alpha)
+        forward(hip)
+        left(180 - alpha)
+        end_fill()
+    else:
+        begin_fill()
+        forward(end.x - start.x)
+        left(-90)
+        forward(abs(end.y - start.y))
+        left(-(90 + alpha))
+        forward(hip)
+        left(-(180 - alpha))
+        end_fill()
+        
 
 
 def tap(x, y):
